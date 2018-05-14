@@ -2,6 +2,7 @@ import { Recipe } from './recipe.model';
 
 export const recipes: Recipe[] = <Recipe[]>[
     {
+        id: 0,
         name: 'Daiquiri',
         picture: 'https://cdn.liquor.com/wp-content/uploads/2016/07/29105024/DAIQUIRI-226x248-mosaic1.jpg',
         description: 'The classic Daiquiri is a super simple rum cocktail that’s well-balanced and refreshing.\
@@ -30,6 +31,7 @@ export const recipes: Recipe[] = <Recipe[]>[
         ]
     },
     {
+        id: 1,
         name: 'Piña Colada',
         picture: 'https://cdn.liquor.com/wp-content/uploads/2016/07/29124300/PINA-COLADA-226x248-mosaic1.jpg',
         description: 'The Piña Colada is a classic tropical cocktail with rum, pineapple and coconut milk.\
@@ -58,6 +60,7 @@ export const recipes: Recipe[] = <Recipe[]>[
         ]
     },
     {
+        id: 2,
         name: 'Mojito',
         picture: 'https://cdn.liquor.com/wp-content/uploads/2016/07/29124230/MOJITO-226x248-mosaic1.jpg',
         description: 'To many people, the Mojito represents the perfect rum cocktail.\

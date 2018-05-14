@@ -24,7 +24,8 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button (click)="showDetails()" mat-button>{{buttonText}}</button>
+    <button mat-button (click)="showDetails()">{{ buttonText }}</button>
+    <a routerLink="/recipes/{{ recipe.id }}">Voir mieux plus tavu</a>
   </mat-card-actions>
 
 </mat-card>
