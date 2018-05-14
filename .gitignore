@@ -4,9 +4,12 @@
 /dist
 /tmp
 /out-tsc
+/app/**/*.js
+/app/**/*.js.map
 
 # dependencies
 /node_modules
+/bower_components
 
 # IDEs and editors
 /.idea
@@ -23,6 +26,7 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history
 
 # misc
 /.sass-cache
@@ -33,6 +37,10 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
 
 # System Files
 .DS_Store

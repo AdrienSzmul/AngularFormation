@@ -1,3 +1,30 @@
-<p>
-  recipe works!
-</p>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ recipe.name }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{ recipe.picture }}" alt="Photo of cocktail {{ recipe.name }}">
+  <mat-card-content>
+    <p>
+      {{ recipe.description }}
+    </p>
+
+    <div *ngIf="isExpanded">
+      <p>Ingredients needed:</p>
+      <ul class="list" *ngFor="let ingredient of recipe.ingredients">
+        <li>{{ingredient.name}}, quantity = {{ ingredient.quantity }}{{ingredient.unit}}</li>
+
+      </ul>
+    </div>
+    <div *ngIf="isExpanded">
+      <p>Prep Instructions:</p>
+      <ul class=list *ngFor="let instruction of recipe.instructions">
+        <li>{{instruction}}</li>
+      </ul>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="showDetails()" mat-button>{{buttonText}}</button>
+  </mat-card-actions>
+
+</mat-card>
