@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Recipe } from './recipe.model';
+import { RecipeService } from './recipe.service';
 const SHOW_DETAILS = 'Show Details';
 const HIDE_DETAILS = 'Hide Details';
 @Component({
@@ -13,6 +14,12 @@ export class RecipeComponent implements OnInit {
   isExpanded = false;
   buttonText = SHOW_DETAILS;
 
+  @Output()
+  deleteEvent = new EventEmitter<Recipe>();
+
+  constructor(private recipeService: RecipeService) {
+
+  }
 
   ngOnInit() {
 
@@ -21,6 +28,11 @@ export class RecipeComponent implements OnInit {
   showDetails() {
     this.isExpanded = !this.isExpanded;
     this.buttonText = this.isExpanded ? HIDE_DETAILS : SHOW_DETAILS;
+  }
+
+  delete() {
+    this.recipeService.deleteRecipe(this.recipe).subscribe(() => this.deleteEvent.emit(this.recipe),
+      error => console.error('error deleting recipe', error));
   }
 
 }

@@ -18,14 +18,15 @@
     </div>
     <div *ngIf="isExpanded">
       <p>Prep Instructions:</p>
-      <ul class=list *ngFor="let instruction of recipe.instructions">
+      <ul class=list *ngFor="let instruction of recipe.instructions | toArray">
         <li>{{instruction}}</li>
       </ul>
     </div>
   </mat-card-content>
   <mat-card-actions>
     <button mat-button (click)="showDetails()">{{ buttonText }}</button>
-    <a routerLink="/recipes/{{ recipe.id }}">Voir mieux plus tavu</a>
+    <button mat-button (click)="delete()">Delete</button>
+    <a mat-button routerLink="/recipes/{{ recipe.id }}">Voir mieux plus tavu</a>
   </mat-card-actions>
 
 </mat-card>

@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { RecipeModule } from './recipe/recipe.module';
+import { RecipeFormComponent } from './recipe/recipe-form/recipe-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    RecipeFormComponent
 
   ],
   imports: [

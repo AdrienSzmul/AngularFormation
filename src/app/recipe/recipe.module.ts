@@ -5,20 +5,30 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RouterModule } from '@angular/router';
+import { RecipeService } from './recipe.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ToArrayPipe } from './to-array.pipe';
+
 
 @NgModule({
   imports: [
     CommonModule,
     CustomMaterialModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   exports: [
-    RecipesComponent
+    RecipesComponent,
+
   ],
   declarations: [
     RecipeComponent,
     RecipesComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    ToArrayPipe
+  ],
+  providers: [
+    RecipeService
   ]
 })
 export class RecipeModule { }

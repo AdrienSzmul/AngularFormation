@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
-import { recipes } from '../recipes';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipes',
@@ -8,12 +8,23 @@ import { recipes } from '../recipes';
   styleUrls: ['./recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
-  recipes: Recipe[] = recipes;
+  recipes: Recipe[];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private recipeService: RecipeService) {
 
   }
 
+  ngOnInit() {
+    this.recipeService.getRecipes().subscribe(
+      recipes => this.recipes = recipes,
+      error => console.error('Error getting recipes list', error)
+
+    );
+  }
+
+  delete(recipe: Recipe) {
+    console.log(recipe);
+    const indexOfRecipe = this.recipes.indexOf(recipe);
+    this.recipes.splice(indexOfRecipe, 1);
+  }
 }
