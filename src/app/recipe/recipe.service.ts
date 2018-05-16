@@ -22,11 +22,11 @@ export class RecipeService {
   }
 
   createRecipe(recipe: Recipe) {
+    console.log(recipe);
     this.httpClient.post(this.baseUrl + '/recipes', recipe).subscribe(() => { }, error => console.error);
   }
 
   deleteRecipe(recipe: Recipe): Observable<Recipe> {
     return this.httpClient.request<Recipe>('delete', this.baseUrl + '/recipes', { body: recipe });
-
   }
 }

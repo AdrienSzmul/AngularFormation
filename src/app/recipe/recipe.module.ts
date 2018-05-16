@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { RecipeService } from './recipe.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ToArrayPipe } from './to-array.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,10 +16,14 @@ import { ToArrayPipe } from './to-array.pipe';
     CommonModule,
     CustomMaterialModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     RecipesComponent,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   declarations: [

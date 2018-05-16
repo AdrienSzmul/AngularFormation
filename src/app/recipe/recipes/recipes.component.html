@@ -1,4 +1,4 @@
-<div class="mat-cards">
-    <app-recipe *ngFor="let recipe of recipes" [recipe]="recipe" (deleteEvent)="delete($event)">
+<div @explainerAnim class="mat-cards">
+    <app-recipe class="col" *ngFor="let recipe of recipes" [recipe]="recipe" (deleteEvent)="delete($event)">
     </app-recipe>
 </div>

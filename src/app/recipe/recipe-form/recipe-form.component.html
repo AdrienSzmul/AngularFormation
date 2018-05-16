@@ -1,22 +1,26 @@
-<mat-card class="example-card">
+<mat-card>
   <h1>Create a Recipe</h1>
-  <mat-form-field class="form-group">
-    <mat-label color="primary" for="name">Name</mat-label>
-    <input matInput [(ngModel)]="recipe.name" type="text" class="form-control" id="name" required>
-  </mat-form-field>
-  <mat-form-field class="form-group">
-    <mat-label for="description">Description</mat-label>
-    <input matInput [(ngModel)]="recipe.description" type="text" class="form-control" id="description" required>
-  </mat-form-field>
-  <mat-form-field class="form-group">
-    <mat-label for="picture">Picture</mat-label>
-    <input matInput [(ngModel)]="recipe.picture" type="url" class="form-control" id="picture" required>
-  </mat-form-field>
-  <mat-form-field class="form-group">
-    <mat-label for="instructions">Instructions (separate each with enter)</mat-label>
-    <textarea matInput [(ngModel)]="recipe.instructions" class="form-control" id="instructions"></textarea>
-  </mat-form-field>
+  <form [formGroup]="recipeForm" (ngSubmit)="createRecipe()">
+    <div class=form-group>
+      <mat-form-field>
+        <mat-label color="primary" for="name">Name</mat-label>
+        <input matInput class="form-control" formControlName="name" type="text" class="form-control" id="name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="description">Description</mat-label>
+        <input matInput class="form-control" formControlName="description" type="text" class="form-control" id="description">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="picture">Picture</mat-label>
+        <input matInput class="form-control" formControlName="picture" type="url" class="form-control" id="picture">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="instructions">Instructions (separate each with enter)</mat-label>
+        <textarea matInput formControlName="instructions" class="form-control" id="instructions"></textarea>
+      </mat-form-field>
+    </div>
 
-  <button mat-button (click)="createRecipe()" type="submit" class="btn btn-success">Submit</button>
 
+    <button mat-button [disabled]="recipeForm.invalid" type="submit" class="btn btn-success">Submit</button>
+  </form>
 </mat-card>
